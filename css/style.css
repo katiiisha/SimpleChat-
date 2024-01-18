@@ -13,7 +13,7 @@ main .chat {
   justify-content: center;
 }
 main .chat .wrapper-chat {
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: space-between;
   gap: 20px;
@@ -61,6 +61,7 @@ main .chat .wrapper-chat .chat-messages_wrapper .chat-messages .massages {
   padding: 17px 10px 19px 10px;
   box-sizing: border-box;
   position: relative;
+  align-self: flex-start;
 }
 main .chat .wrapper-chat .chat-messages_wrapper .chat-messages .massages::after {
   content: "";
@@ -108,4 +109,21 @@ main .chat .wrapper-chat .chat-input_wrapper .chat-input_send {
   background: #FFF;
   border-radius: 15px;
   border: 2px solid #F07EE4;
+}
+main .chat .chat-side .chat-side_btn {
+  cursor: pointer;
+  color: #FFF;
+  font-family: "Pangolin";
+  font-size: 20px;
+  width: 300px;
+  height: 50px;
+  border-radius: 20px;
+  border: 2px solid #F07EE4;
+  background: #F89AEF;
+}
+main .chat_active .chat-side {
+  display: none;
+}
+main .chat_active .wrapper-chat {
+  display: flex;
 }/*# sourceMappingURL=style.css.map */
