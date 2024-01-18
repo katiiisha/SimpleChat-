@@ -1,0 +1,115 @@
+header {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    h1 {
+        font-family: 'Pangolin', cursive;
+        font-size: 64px;
+    }
+}
+main {
+    .chat {
+        display: flex;
+        justify-content: center;
+        .wrapper-chat {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 20px;
+            width: 456px;
+            height: 648px;
+            border-radius: 15px;
+            background: #F8F5F9;
+            padding: 25px;
+            font-family: "Open Sans";
+            font-size: 16px;
+            .header-chat {
+                display: flex;
+                margin: 0 auto 0 auto;
+                align-items: center;
+                justify-content: center;
+                color: #FFF;
+                font-family: 'Pangolin';
+                font-size: 20px;
+                width: 254px;
+                height: 46px;
+                border-radius: 20px;
+                border: 2px solid #F07EE4;
+                background: #F89AEF;
+                h3{
+                    margin: 0;
+                }
+            }
+            .chat-messages_wrapper {
+                height: 100%;
+                overflow: scroll;
+                .chat-messages {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 15px;
+                    .massages {
+                        display: flex;
+                        min-height: 69px;
+                        min-width: 75px;
+                        max-width: 250px;
+                        background-color: #FFF;
+                        border-radius: 20px;
+                        padding: 17px 10px 19px 10px;
+                        box-sizing: border-box;
+                        position: relative;
+                        &::after {
+                            content: "";
+                            position: absolute; 
+                            border: 20px solid transparent; 
+                            border-top: 20px solid #ffffff; 
+                            bottom: -33px;
+                            left: 11px;
+                        }
+                          .massages_time {
+                            position: absolute;
+                            bottom: 3px;
+                            right: 13px;
+                            font-size: 14px;
+                        }
+
+                    }
+                    .massages__client {
+                       align-self: flex-end;
+                       background-color: #F89AEF;
+                       color: #fff;
+                        
+                        &::after {
+                            border-top: 20px solid #F89AEF; 
+                            bottom: -33px;
+                            left: auto;
+                            right: 11px; 
+                        }
+                    }
+                }
+            }
+            .chat-input_wrapper {
+                display: flex;
+                justify-content: space-between;
+                .chat-input {
+                    font-size: 16px;
+                    width: 352px;
+                    height: 56px;
+                    border-radius: 15px;
+                    border: 2px solid #F07EE4;
+                    background: #FFF;
+                    color: rgba(0, 0, 0);
+                    padding-left: 16px;
+                }
+                .chat-input_send {
+                    width: 62px;
+                    height: 62px;
+                    border-radius: 15px;
+                    background: #FFF;
+                    border-radius: 15px;
+                    border: 2px solid #F07EE4;
+                }
+            }
+           
+        }
+    }
+}
