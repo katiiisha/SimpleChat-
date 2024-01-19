@@ -109,6 +109,7 @@ main .chat .wrapper-chat .chat-input_wrapper .chat-input_send {
   background: #FFF;
   border-radius: 15px;
   border: 2px solid #F07EE4;
+  cursor: pointer;
 }
 main .chat .chat-side .chat-side_btn {
   cursor: pointer;

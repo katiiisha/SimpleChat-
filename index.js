@@ -1,8 +1,7 @@
 const chat = document.querySelector('.chat');
 const inpClient = document.getElementById('chat-input');
 const messages = document.querySelector('.chat-messages');
-
-
+const btnSend = document.querySelector('.chat-input_send')
 
 const ActiveChat = function () { 
     this.classList.add('chat_active');
@@ -22,7 +21,8 @@ const GetAnswerRandom = function () {
         'Где ваша совесть?',
         'Вы не купили ни одного товара для того, чтобы с нами так раговаривать!',
         'У нас нет настроения с вами разговаривать!',
-        'Хотите я вам расскажу анектод?'
+        'Хотите я вам расскажу анектод?',
+        'Возьмите Катю на работу пожалуйста!'
 
     ]
     return answerBot[Math.floor(Math.random() * (answerBot.length))]
@@ -49,46 +49,54 @@ const autoScroll = function () {
         }
     }
 }
-const SendAnswerBot = function () {
+
+const createMessage = function (additionalСlass, text) {
     let message = document.createElement('div');
     let message_text = document.createElement('div');
     let massages_time = document.createElement('div');
     message.className = 'massages';
+    if (additionalСlass) { 
+        message.classList.add(additionalСlass)
+    }
     message_text.className = 'massages_text';
-    message_text.textContent = `${GetAnswerRandom()}`;
+    message_text.textContent = `${text}`;
     massages_time.className = 'massages_time';
     massages_time.textContent = `${GetCurrentTime()}`;
     message.append(message_text, massages_time);
-    messages.append(message)
+    return message
+}
 
+
+const SendAnswerBot = function () {
+    let messageBot = createMessage(null, GetAnswerRandom())
+    messages.append(messageBot)
     if (auto) {
         scrollToBottom();
     }
-
 }
+
+
 
 const SendMessageClient = function (event) {
     if (event.code === 'Enter' && event.target.value.trim() !== '') {
-        let message = document.createElement('div');
-        let message_text = document.createElement('div');
-        let massages_time = document.createElement('div');
-        message.className = 'massages massages__client';
-        message_text.className = 'massages_text';
-        message_text.textContent = `${event.target.value}`;
-        massages_time.className = 'massages_time';
-        massages_time.textContent = `${GetCurrentTime()}`;
-        message.append(message_text, massages_time);
-        messages.append(message)
-        console.log(message);
-
-       
+        let messageClient = createMessage('massages__client', event.target.value)
+        messages.append(messageClient)
         event.target.value = '';
-
         SendAnswerBot();
         if (auto) {
             scrollToBottom();
         }
-
+    }
+   
+    
+}
+const SendMessageClientBtn = function () {
+    let messageClient = createMessage('massages__client', inpClient.value)
+    messages.append(messageClient)
+    inpClient.value = '';
+    SendAnswerBot();
+    if (auto) {
+        scrollToBottom();
     }
 }
 
@@ -96,4 +104,5 @@ const SendMessageClient = function (event) {
 
 messages.addEventListener('scroll', autoScroll)
 chat.addEventListener('click', ActiveChat);
+btnSend.addEventListener('click', SendMessageClientBtn )
 inpClient.addEventListener('keyup', SendMessageClient)
